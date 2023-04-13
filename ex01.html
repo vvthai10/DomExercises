@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>20120561</title>
     <!-- Bootstrap CSS v5.2.1 -->
     <link
@@ -12,33 +12,64 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
-</head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-          <div class="container">
-            <a class="navbar-brand" href="#">Nhóm 06</a>
-            Exercise 01 - 20120561
-            </div>
-      </div>
-    </nav>
-    
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">Nhóm 06</a>
+          <button
+            class="navbar-toggler d-lg-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#" style="font-weight: 800">
+                  Check/Uncheck All Checkboxes</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./ex02.html">Active Icon Image</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-    <div style="margin: 60px;">
-        <button id="btnCA">Check all</button>
-        <button id="btnUA">Uncheck all</button>
-    
-        <ul style="list-style-type: none; padding: 0">
-          <li>
-            <label for="c1"><input type="checkbox" name="cb" value="1" id="c1">Checkbox 1</label>
-          </li>
-          <li>
-            <label for="c2"><input type="checkbox" name="cb" value="2" id="c2">Checkbox 2</label>
-          </li>
-          <li>
-            <label for="c3"> <input type="checkbox" name="cb" value="3" id="c3">Checkbox 3</label>
-          </li>
-        </ul>
-      </div>
+    <div style="margin: 60px">
+      <button id="btnCA">Check all</button>
+      <button id="btnUA">Uncheck all</button>
+
+      <ul style="list-style-type: none; padding: 0">
+        <li>
+          <label for="c1"
+            ><input type="checkbox" name="cb" value="1" id="c1" />Checkbox
+            1</label
+          >
+        </li>
+        <li>
+          <label for="c2"
+            ><input type="checkbox" name="cb" value="2" id="c2" />Checkbox
+            2</label
+          >
+        </li>
+        <li>
+          <label for="c3">
+            <input type="checkbox" name="cb" value="3" id="c3" />Checkbox
+            3</label
+          >
+        </li>
+      </ul>
+    </div>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
       integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
@@ -52,26 +83,23 @@
     ></script>
 
     <script>
-        const $ = s => document.querySelector(s);
-        const $$ = s => [...document.querySelectorAll(s)];
-    
-        const checkboxes = $$('input[name="cb"]');
-        const btnCA = $("#btnCA");
-        const btnUA = $("#btnUA");
-    
-    
-        function checkAll() {
-        checkboxes.forEach(checkbox => checkbox.checked = true);
-        }
-    
-        function uncheckAll() {
-        checkboxes.forEach(checkbox => checkbox.checked = false);
-        }
-    
-    
-        btnCA.addEventListener("click", checkAll);
-        btnUA.addEventListener("click", uncheckAll);
-    </script>
-</body>
+      const $ = (s) => document.querySelector(s);
+      const $$ = (s) => [...document.querySelectorAll(s)];
 
+      const checkboxes = $$('input[name="cb"]');
+      const btnCA = $("#btnCA");
+      const btnUA = $("#btnUA");
+
+      function checkAll() {
+        checkboxes.forEach((checkbox) => (checkbox.checked = true));
+      }
+
+      function uncheckAll() {
+        checkboxes.forEach((checkbox) => (checkbox.checked = false));
+      }
+
+      btnCA.addEventListener("click", checkAll);
+      btnUA.addEventListener("click", uncheckAll);
+    </script>
+  </body>
 </html>
