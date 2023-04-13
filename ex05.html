@@ -44,13 +44,13 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" style="font-weight: 800"
-                  >Active Icon Image</a
-                >
+                <a class="nav-link" href="./ex02.html">Active Icon Image</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="./ex05.html">Filter List </a>
+                <a class="nav-link" href="#" style="font-weight: 800"
+                  >Filter List
+                </a>
               </li>
             </ul>
           </div>
@@ -58,22 +58,60 @@
       </nav>
     </header>
     <main>
+      <h1>Filter List</h1>
       <div class="container">
-        <h1>Active Icon Image</h1>
         <div class="row">
-          <div class="col-3">
-            <img src="./images/icon-1.png" alt="image 1" class="icon" id="1" />
-          </div>
-          <div class="col-3">
-            <img src="./images/icon-2.png" alt="image 2" class="icon" id="2" />
-          </div>
-          <div class="col-3">
-            <img src="./images/icon-3.png" alt="image 3" class="icon" id="3" />
-          </div>
-          <div class="col-3">
-            <img src="./images/icon-4.png" alt="image 4" class="icon" id="4" />
+          <div
+            class="col-12"
+            style="display: flex; align-items: center; justify-content: center"
+          >
+            <label for="" class="form-label" style="width: 100px"
+              >Key word</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="keyword"
+              id="keyword"
+              aria-describedby="helpId"
+              placeholder="Keyword"
+              required
+              onkeyup="filter(this.value)"
+            />
           </div>
         </div>
+        <ul class="list-group">
+          <ul class="list-group">
+            <li
+              class="list-group-item list-group-item-action list-group-item-primary"
+            >
+              A
+            </li>
+            <li class="list-group-item">AA</li>
+            <li class="list-group-item">AA</li>
+            <li class="list-group-item">AA</li>
+          </ul>
+          <ul class="list-group">
+            <li
+              class="list-group-item list-group-item-action list-group-item-primary"
+            >
+              B
+            </li>
+            <li class="list-group-item">BB</li>
+            <li class="list-group-item">BB</li>
+            <li class="list-group-item">BB</li>
+          </ul>
+          <ul class="list-group">
+            <li
+              class="list-group-item list-group-item-action list-group-item-primary"
+            >
+              C
+            </li>
+            <li class="list-group-item">CC</li>
+            <li class="list-group-item">CC</li>
+            <li class="list-group-item">CC</li>
+          </ul>
+        </ul>
       </div>
     </main>
     <footer>
@@ -93,20 +131,16 @@
     ></script>
 
     <script>
-      const listIcon = document.getElementsByClassName("icon");
-      console.log(listIcon);
-
-      for (const element of listIcon) {
-        element.addEventListener("mouseover", (e) => {
-          let imgPath = element.src;
-          let activeImgPath = imgPath.replace(".png", "-active.png");
-          element.src = activeImgPath;
-        });
-        element.onmouseout = () => {
-          let imgPath = element.src;
-          let activeImgPath = imgPath.replace("-active.png", ".png");
-          element.src = activeImgPath;
-        };
+      function filter(keyword) {
+        document
+          .querySelectorAll("li.list-group-item:not(.list-group-item-primary)")
+          .forEach((item) => {
+            if (item.innerText.indexOf(keyword) >= 0) {
+              item.style.display = "block";
+            } else {
+              item.style.display = "none";
+            }
+          });
       }
     </script>
   </body>
