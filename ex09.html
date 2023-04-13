@@ -66,7 +66,11 @@
     </nav>
   </header>
   <main>
-    
+    <h1 class="text-center">Fetch Data from reqres.in</h1>
+    <div class="container">
+        <button class="btn btn-primary" onclick="fetchData()">Fetch Data</button>
+        <ul class="list-group" id="myList"></ul>
+    </div>
   </main>
   <footer>
     <!-- place footer here -->
@@ -87,8 +91,8 @@
         let ul = document.getElementById('myList');
         json.data.forEach(item => {
             let li = document.createElement('li');
-            li.innerText = '${item.name} - ${item.year}';
-            li.className='list-group-itme'
+            li.innerText = `${item.name} - ${item.year}`;
+            li.className='list-group-itme';
             li.style.color = item.color;
             ul.appendChild(li);            
         });
