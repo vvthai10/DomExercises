@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20120561</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+          <div class="container">
+            <a class="navbar-brand" href="#">Nhóm 06</a>
+            Exercise 04 - 20120561
+            </div>
+      </div>
+    </nav>
+    
+
+    <div style="margin: 60px;">
+        <label for="passwordInput">Password</label><br>
+        <input type="password" name="passwordInput" id="passwordInput" required ><br>
+        
+        <label for="passwordConfirm">Confirm Password</label><br>
+        <input type="password" name="passwordConfirm" id="passwordConfirm" onkeyup="validatePassword()"><br><br>
+
+        <input type="checkbox" name="cbShowHide" id="cbShowHide" onclick="showPassword(this.checked) ">
+        <label for="passwordConfirm">Show/Hide password</label><br><br>
+
+        <button id="btnConfirm">Update</button>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+        const $ = s => document.querySelector(s);
+        const $$ = s => [...document.querySelectorAll(s)];
+    
+        const pwInput = $('input[name="passwordInput"]');
+        const pwConf = $('input[name="passwordConfirm"]');
+
+    
+    
+        function showPassword(checked) {
+            if (checked) {
+                $$('input[type=password]').forEach(item => item.type = 'text');
+            } else {
+                $$('input[type=text]').forEach(item => item.type = 'password');
+            }
+
+        }
+
+        function validatePassword() {
+            if (pwInput.value != pwConf.value) {
+                pwConf.setCustomValidity('Passwords must mactch!!!');
+                pwConf.reportValidity();
+            } else {
+                pwConf.setCustomValidity("");
+            }
+        }
+    </script>
+</body>
+
+</html>
